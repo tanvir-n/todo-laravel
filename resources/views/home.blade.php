@@ -25,9 +25,9 @@
         <div class="row">
             <div class="col-md-8">
                 <h1 class="display-4">{{ config('app.name') }}</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <p class="lead">This is a simple todo application, Within this application any todo can be add, edit, delete and make that todo completed.</p>
                 <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p></p>
                 <p class="lead">
                     <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
                 </p>

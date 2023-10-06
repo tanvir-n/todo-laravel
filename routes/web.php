@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +41,7 @@ Route::post('/todos', function () {
                 ['completed' => is_null(request('completed')) ? 0 : 1]
             )
             );
-    return redirect('/')->with('status',"Insert successfully");
+    return redirect('/todos')->with('status',"Insert successfully");
 });
 
 Route::get('/todos/{id}', function ($id) {
@@ -60,15 +63,22 @@ Route::patch('/todos/{id}', function ($id) {
     $todo->description = request('description');
     $todo->completed = is_null(request('completed')) ? 0 : 1;
     $todo->save();
-    return redirect('/');
+    return redirect('/todos');
 });
 
 Route::delete('/todos/{id}', function ($id) {
     $todo = Todo::findOrFail($id);
     $todo->delete();
-    return redirect('/');
+    return redirect('/todos');
 });
 
+
 Auth::routes();
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+});
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

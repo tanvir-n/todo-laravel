@@ -1,0 +1,38 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+
+class PermissionSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        //
+        $permissions = [
+            'role-list',
+            'role-create',
+            'role-edit',
+            'role-delete',
+            'product-list',
+            'product-create',
+            'product-edit',
+            'product-delete'
+         ];
+        
+         foreach ($permissions as $permission) {
+            Permission::create(['name' => $permission]);
+        }
+
+        // to use below method we need to use collect method in $permissions variable.
+        //  $permissions->each(function($perm){
+        //     Permission::insert($perm);
+        //  });
+
+    }
+}

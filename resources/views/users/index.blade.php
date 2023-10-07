@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="row mt-2 ml-2">
-    <div class="col-md-9 margin-tb">
+    <div class="col-md-9">
       <h2>User Management</h2>
     </div>
     <div class="col-md-3 d-grid d-flex justify-content-md-center">
@@ -41,16 +41,26 @@
       @endif
     </td>
     <td>
-       <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-       <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
-       <a class="btn btn-danger" href="{{ route('users.destroy',$user->id) }}">Delete</a>
+      <div class="form-check form-check-inline">
+        <a class="btn btn-info mx-1" href="{{ route('users.show',$user->id) }}">Show</a>
+        @can('user-edit')
+          <a class="btn btn-primary mx-1" href="{{ route('users.edit',$user->id) }}">Edit</a>
+        @endcan
+        @can('user-delete')
+        <form action="{{route('users.destroy',$user->id)}}" method="POST">
+          @csrf
+          @method('DELETE')
+            <input type="submit" value="Delete" class="btn btn-danger mx-1"/>
+        </form>
+        @endcan
+      </div>
     </td>
   </tr>
  @endforeach
 </table>
 
 
-{!! $data->render() !!}
+{{-- {!! $data->render() !!} --}}
 
 
 @endsection

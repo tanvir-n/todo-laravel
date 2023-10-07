@@ -4,7 +4,7 @@
 @section('content')
 <div class="row mt-2 ml-2">
     <div class="col-md-10">
-            <h2>Show User</h2>
+        <h2>Show User</h2>
     </div>
     <div class="col-md-2 d-grid d-flex justify-content-md-center my-2">
         <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>

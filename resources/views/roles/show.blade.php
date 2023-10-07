@@ -2,17 +2,17 @@
 
 
 @section('content')
-<div class="row">
-    <div class="col-md-9">
+<div class="row mt-2 ml-2">
+    <div class="col-md-10">
         <h2>Show Role</h2>
     </div>
-    <div class="col-md-3 d-grid d-flex justify-content-md-center">
+    <div class="col-md-2 d-grid d-flex justify-content-md-center my-2">
         <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
     </div>
 </div>
 
 
-<div class="row">
+<div class="row mt-2 ml-2">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Name:</strong>

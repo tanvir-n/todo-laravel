@@ -29,13 +29,13 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control-plaintext" id="inputName" value="{{ $user->name }}">
+                <input type="text" class="form-control" id="inputName" value="{{ $user->name }}">
             </div>
         </div>
         <div class="form-group row">
             <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control-plaintext" id="inputEmail" value="{{ $user->email }}">
+                <input type="text" class="form-control" id="inputEmail" value="{{ $user->email }}">
             </div>
         </div>
         <div class="form-group row">

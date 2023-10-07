@@ -24,42 +24,42 @@
 @endif
 
 <div class="row my-2 mx-2">
-    <form method="POST" action="{{ route('users.store')}}" novalidate>
+    <form method="POST" action="{{ route('users.store')}}">
+        @csrf
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputName">
+                <input type="text" class="form-control" id="inputName" name="name">
             </div>
         </div>
         <div class="form-group row">
             <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputEmail">
+                <input type="text" class="form-control" id="inputEmail" name="email">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword">
+                <input type="password" class="form-control" id="inputPassword" name="password">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Confirm Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputConfirmPassword">
+                <input type="password" class="form-control" id="inputConfirmPassword" name="confirm-password">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Role</label>
             <div class="col-sm-10">
-                <select class="form-control">
+                <select class="form-control" name="roles">
                     @foreach ($roles as $role)
                         <option>{{ $role }}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-        <input type="hidden" name="_token" value="' + this.csrf + '">
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
